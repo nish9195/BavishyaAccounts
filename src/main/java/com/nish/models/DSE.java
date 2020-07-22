@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class DSE {
 	
@@ -29,6 +31,7 @@ public class DSE {
 	private Distributor distributor;
 	
 	@OneToMany(mappedBy="dse")
+	@JsonBackReference(value = "shops")
 	private List<Shop> shops;
 	
 	@OneToMany(mappedBy="dse")

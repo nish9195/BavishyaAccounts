@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Distributor {
 	
@@ -23,6 +25,7 @@ public class Distributor {
 	private String password;
 	
 	@OneToMany(mappedBy="distributor")
+	@JsonBackReference(value = "dses")
 	private List<DSE> dses;
 	
 	@OneToMany(mappedBy="distributor")
